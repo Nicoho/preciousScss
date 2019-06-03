@@ -1,0 +1,38 @@
+@mixin getCenter{
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  align-items:center;
+  margin-top: 50px;
+ }
+
+@mixin ring ($colorRing, $sizeRing, $borderRing) {
+  width: $sizeRing;
+  height:$sizeRing;
+  border-radius: 50%;
+   border: $borderRing solid;
+  border-color: $colorRing;
+  box-shadow: 2px 2px 2px grey;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.part {
+  @include getCenter()
+};
+
+.precious {
+  @include ring(orange, 50px, 5px)
+}
+
+.theOne{
+  @include ring(yellow, 130px, 10px)
+}
+
+@for $i from 1 through 6 {
+  .please#{$i} {
+  @include ring(grey, 45px + $i*10, 5px);
+  margin-left: -80px - $i;
+ }
+}
+
